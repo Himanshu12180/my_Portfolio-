@@ -83,7 +83,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="min-h-screen w-full bg-dark-900 px-4 sm:px-6 lg:px-10 py-16 sm:py-20">
+    <section id="contact" className="min-h-screen w-full bg-dark-900 px-4 sm:px-6 lg:px-10 py-16 sm:py-20">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}

@@ -93,7 +93,7 @@ export default function Services() {
   };
 
   return (
-    <section className="min-h-screen w-full bg-dark-900 px-4 sm:px-6 lg:px-8 py-20">
+    <section id="services" className="min-h-screen w-full bg-dark-900 px-4 sm:px-6 lg:px-8 py-20">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
