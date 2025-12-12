@@ -1,0 +1,316 @@
+/* ============================================================================
+   SPIRITUAL UI ANIMATIONS - Krishna, Flute, Peacock Feather
+   Production-grade smooth animations with GSAP
+   ============================================================================ */
+
+/* ============================================================================
+   Krishna Glow Animations
+   ============================================================================ */
+
+@keyframes auraFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-20px, -20px) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes glowFloat {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(15px, -15px);
+    opacity: 0.5;
+  }
+}
+
+.krishna-glow-container {
+  will-change: opacity, transform;
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+}
+
+.krishna-glow-container svg {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.6));
+  animation: breatheGlow 3s ease-in-out infinite;
+}
+
+@keyframes breatheGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 60px rgba(99, 102, 241, 0.8)) drop-shadow(0 0 30px rgba(217, 119, 6, 0.4));
+  }
+}
+
+/* ============================================================================
+   Flute Parallax Animations
+   ============================================================================ */
+
+.flute-parallax {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  z-index: 5;
+}
+
+.flute-element {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.3s ease;
+}
+
+.flute-element:hover {
+  filter: drop-shadow(0 0 40px rgba(217, 119, 6, 0.8));
+  opacity: 1;
+}
+
+.flute-element svg {
+  filter: drop-shadow(0 0 20px rgba(217, 119, 6, 0.6));
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ============================================================================
+   3D Peacock Feather Canvas Animations
+   ============================================================================ */
+
+.peacock-feather-canvas {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  perspective: 1000px;
+}
+
+canvas {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ============================================================================
+   Spiritual Hero Section Layout
+   ============================================================================ */
+
+.hero-spiritual {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1200px;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.hero-spiritual-content {
+  position: relative;
+  z-index: 20;
+  max-width: 1200px;
+  width: 100%;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+/* ============================================================================
+   Scroll Progress Bar (optional visual indicator)
+   ============================================================================ */
+
+.scroll-progress-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    #6366f1 0%,
+    #06b6d4 50%,
+    #f59e0b 100%
+  );
+  width: calc(var(--scroll-progress, 0) * 100%);
+  z-index: 100;
+  will-change: width;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ============================================================================
+   Spiritual Text Animations
+   ============================================================================ */
+
+.spiritual-text {
+  background: linear-gradient(
+    135deg,
+    #6366f1 0%,
+    #06b6d4 50%,
+    #f59e0b 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: spiritualGradientShift 6s ease-in-out infinite;
+}
+
+@keyframes spiritualGradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ============================================================================
+   3D Depth Effects
+   ============================================================================ */
+
+.depth-layer {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  perspective: 1000px;
+}
+
+.depth-reveal-element {
+  animation: depthRevealSpiritual 1s ease-out forwards;
+}
+
+@keyframes depthRevealSpiritual {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(45deg) translateZ(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) translateZ(0);
+  }
+}
+
+/* ============================================================================
+   Glow Effects for Spiritual Elements
+   ============================================================================ */
+
+.glow-neon {
+  filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.6));
+  will-change: filter;
+}
+
+.glow-neon:hover {
+  filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.8)) drop-shadow(0 0 20px rgba(217, 119, 6, 0.4));
+}
+
+.glow-golden {
+  filter: drop-shadow(0 0 15px rgba(217, 119, 6, 0.6));
+}
+
+.glow-golden:hover {
+  filter: drop-shadow(0 0 30px rgba(217, 119, 6, 0.8));
+}
+
+.glow-cyan {
+  filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.6));
+}
+
+.glow-cyan:hover {
+  filter: drop-shadow(0 0 30px rgba(6, 182, 212, 0.8));
+}
+
+/* ============================================================================
+   Floating & Breathing Animations
+   ============================================================================ */
+
+@keyframes spiritualFloat {
+  0%,
+  100% {
+    transform: translateY(0px) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translateY(-20px) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes spiritualBreathe {
+  0%,
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.05) translate3d(0, 0, 0);
+  }
+}
+
+.float-element {
+  animation: spiritualFloat 3s ease-in-out infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.breathe-element {
+  animation: spiritualBreathe 2.5s ease-in-out infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ============================================================================
+   Responsive Adjustments
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .krishna-glow-container {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+
+  .flute-element {
+    transform: scale(0.7);
+  }
+
+  .hero-spiritual-content {
+    padding: 40px 20px;
+  }
+}
+
+/* ============================================================================
+   Accessibility - Reduced Motion
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .krishna-glow-container,
+  .flute-element,
+  .float-element,
+  .breathe-element,
+  .spiritual-text {
+    animation: none !important;
+    will-change: auto !important;
+  }
+
+  .krishna-glow-container svg,
+  .flute-element svg {
+    filter: none !important;
+  }
+}
+
+/* ============================================================================
+   Performance Optimization
+   ============================================================================ */
+
+@supports (will-change: transform) {
+  .krishna-glow-container,
+  .flute-element,
+  .peacock-feather-canvas,
+  .float-element,
+  .breathe-element,
+  canvas {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+}

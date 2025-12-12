@@ -1,0 +1,409 @@
+/* ============================================================================
+   GSAP SMOOTH SCROLL ANIMATIONS - Production Ready
+   Matches GSAP.com/pricing visual quality and smoothness
+   ============================================================================ */
+
+:root {
+  --scroll-progress: 0;
+  --ease-out: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out: cubic-bezier(0.43, 0.13, 0.15, 0.96);
+}
+
+/* ============================================================================
+   Global GPU Acceleration
+   ============================================================================ */
+
+html {
+  scroll-behavior: auto; /* Let ScrollSmoother handle it */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+* {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+}
+
+/* ============================================================================
+   ScrollSmoother Containers
+   ============================================================================ */
+
+#smooth-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+
+#smooth-content {
+  width: 100%;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ============================================================================
+   Hero Section Animations
+   ============================================================================ */
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #050014 0%, #1a0033 100%);
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.hero-title {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.hero-subtitle {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.hero-buttons {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-info-box {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.3s ease;
+}
+
+.hero-info-box:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+  transform: translateY(-4px) translate3d(0, 0, 0);
+}
+
+/* CTA Button scroll-reactive animation */
+.cta-button {
+  position: relative;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.3s var(--ease-out);
+}
+
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+/* ============================================================================
+   Parallax Layers
+   ============================================================================ */
+
+.parallax-bg {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+.parallax-mid {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+.parallax-fg {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+/* ============================================================================
+   Section Transitions
+   ============================================================================ */
+
+section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Premium section divider */
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(99, 102, 241, 0.3) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* ============================================================================
+   Scroll-Triggered Text Animations
+   ============================================================================ */
+
+.scroll-fade-in {
+  will-change: opacity;
+  transform: translate3d(0, 0, 0);
+}
+
+.scroll-slide-up {
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+}
+
+.scroll-stagger {
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ============================================================================
+   Interactive Elements
+   ============================================================================ */
+
+button,
+a {
+  transition: all 0.3s var(--ease-out);
+}
+
+button:active,
+a:active {
+  transform: scale(0.98) translate3d(0, 0, 0);
+}
+
+/* ============================================================================
+   Scrollbar Styling
+   ============================================================================ */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 5px;
+  border: 2px solid #050014;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #4f46e5 0%, #7c3aed 100%);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6366f1 #050014;
+}
+
+/* ============================================================================
+   Responsive Adjustments
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-button {
+    width: 100%;
+  }
+
+  /* Disable parallax on mobile for better performance */
+  .parallax-bg,
+  .parallax-mid,
+  .parallax-fg {
+    will-change: opacity;
+  }
+
+  section {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================================================
+   Accessibility - Reduced Motion
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  #smooth-wrapper {
+    position: static;
+    height: auto;
+  }
+
+  #smooth-content {
+    transform: none !important;
+  }
+
+  .parallax-bg,
+  .parallax-mid,
+  .parallax-fg {
+    transform: none !important;
+  }
+
+  .hero-section {
+    will-change: auto;
+  }
+}
+
+/* ============================================================================
+   Performance Hints
+   ============================================================================ */
+
+@supports (will-change: transform) {
+  #smooth-content,
+  section,
+  .hero-section,
+  .cta-button,
+  .parallax-bg,
+  .parallax-mid,
+  .parallax-fg {
+    will-change: transform;
+  }
+}
+
+/* ============================================================================
+   3D Transforms for Depth
+   ============================================================================ */
+
+.depth-reveal {
+  perspective: 1000px;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  will-change: transform;
+}
+
+.depth-reveal.active {
+  animation: depthReveal 0.8s var(--ease-out) forwards;
+}
+
+@keyframes depthReveal {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(45deg) rotateY(-10deg) translateZ(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0);
+  }
+}
+
+/* ============================================================================
+   Smooth Reveal Animation
+   ============================================================================ */
+
+.reveal {
+  overflow: hidden;
+}
+
+.reveal > span {
+  display: inline-block;
+  will-change: transform;
+  transform: translateY(110%) translate3d(0, 0, 0);
+}
+
+.reveal.active > span {
+  animation: revealLine 0.8s var(--ease-out) forwards;
+}
+
+@keyframes revealLine {
+  to {
+    transform: translateY(0) translate3d(0, 0, 0);
+  }
+}
+
+/* ============================================================================
+   Floating Elements
+   ============================================================================ */
+
+.float-element {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translateY(-20px) translate3d(0, 0, 0);
+  }
+}
+
+.float-element.animating {
+  animation: float 3s ease-in-out infinite;
+}
