@@ -42,7 +42,8 @@ export default function Contact() {
     }
 
     try {
-      const response = await fetch("https://your-backend-app.onrender.com/contact", {
+     const response = await fetch("https://my-portfolio-2-sdvp.onrender.com/contact", {
+
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
